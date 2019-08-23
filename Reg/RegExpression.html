@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<section id="page" data-role="page">
+		<header data-role="header">
+			<h1>Regular expression</h1>
+		</header><!-- /header -->
+		<article role="main" class="ui-content">
+			<form action="">
+				<div data-role="fieldcontain">
+					<label for="textBox">Starts with character A</label>
+					<input type="text" pattern="^A.*" title="Start with A" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First character can be A, B or C</label>
+					<input type="text" pattern="^[ABC].*" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Fi</label>
+					<input type="text" name="textBox" id="textBox" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First char is A-C and second from 0-5</label>
+					<input type="text" pattern="^[A-C][0-5].*" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First char is alphabet, Second is a digit</label>
+					<input type="text" pattern="^[A-Za-z]\d.*" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">ddd-ddddd</label>
+					<input type="text" pattern="^\d{3}-\d{5}$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Ends with .com</label>
+					<input type="text" pattern=".+[\.](com)$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Email</label>
+					<input type="text" pattern="^.+@.+[\.](com)$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Email .com or .net</label>
+					<input type="text" pattern="^.+@.+[\.]((com)|(net))$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First Name and Last Name</label>
+					<input type="text" pattern="^[A-Za-z]+\s[A-Za-z]+$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Min 5 characters</label>
+					<input type="text" minlength="5" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Not begin with A, B or C</label>
+					<input type="text" pattern="^[^ABC].*" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">must contain number 5 indepentdently</label>
+					<input type="text" pattern="^.*\b5.*" value="" />
+				</div>
+				<input type="submit" value="check">
+			</form>
+			
+			
+		</article><!-- /content -->
+		<footer data-role="footer">
+			<h1>Footer</h1>
+		</footer><!-- /footer -->
+	</section><!-- /page -->
+</body>
+</html>

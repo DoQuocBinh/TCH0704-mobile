@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<title>JQuery and Reg</title>
+	<style>
+		.ui-content .errorMsg{
+			border: red solid 1px;
+		}
+		.ui-content .validMsg{
+			border: green solid 1px;
+		}
+		.ui-content .errorText{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		//all resources are ready in browser
+		$(document).ready(function() {
+			//register event for button click
+			$("#btnCheck").click(function(event) {
+				//get the value from the textbox
+				var email = $("#email").val();
+				//run regular expression to check
+				var pat = new RegExp("^.+@.+[\.](com)$");
+				if (pat.test(email)) {//valid email
+					//apply stylesheet class to email
+					$("#email").addClass('validMsg');
+					//clear any previous error
+					$("#emailError").text('');
+				}else{
+					$("#email").addClass('errorMsg');
+					//show error message
+					$("#emailError").text('Not an email!')
+				}
+				var age = $("#age").val();
+				if (age <12) {
+					$("#age").addClass('errorMsg');
+
+				}else{
+					$("#age").addClass('validMsg');
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<section id="page" data-role="page">
+		<header data-role="header">
+			<h1>JQuery and Reg</h1>
+		</header><!-- /header -->
+		<article role="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="email">Enter an email</label>
+				<input type="text" id="email" value="" />
+				<label for="email" class="errorText" id="emailError"></label>
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textBox">Age > 12</label>
+				<input type="text" id="age" value="" />
+			</div>
+			<input type="button" id="btnCheck" value="Check">
+		</article><!-- /content -->
+		<footer data-role="footer">
+			<h1>Footer</h1>
+		</footer><!-- /footer -->
+	</section><!-- /page -->
+</body>
+</html>
